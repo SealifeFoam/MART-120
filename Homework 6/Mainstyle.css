@@ -1,0 +1,25 @@
+
+  h1 {
+    color:#FFAF3B;
+    font-family:'Times New Roman', Times, serif;
+    font-size:24px;
+    
+}
+
+p {
+    color:#F23827;
+    font-family:'Times New Roman', Times, serif;
+    font: size 30px;
+}
+
+li { 
+  color:#F205CB
+}
+ul {
+  color :rgb(250, 169, 49)
+}
+
+body {
+  background : #6204BF ;
+  background-repeat: repeat-x;
+}
