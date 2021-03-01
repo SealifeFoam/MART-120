@@ -1,4 +1,21 @@
 <title>Contact</title>
+
+<head> 
+<script> 
+        function checkForm()
+        {
+            var name;
+            name = document.getElementById("txtName").value;
+            if(name == "")
+            { 
+                document.getElementById("txtName").style.backgroundColor = "red"
+            }
+        
+        }
+</script>
+  </head>
+
+
 <h> <style>
     span{
         background-color:rgb(234, 0, 255);
@@ -13,18 +30,30 @@
 
 <body>
         
-        <form action="nextPage.html" type="Post">
-            First Name: <input type="text" id="fName"><br>
-            Last Name: <input type="text" id="lName"><br>
-                     Email : <input type="text" id="Email"><br> 
-            
+    <table>
+        <tr>
+            <td>FirstName</td>
+            <td><input type="text" id="txtName"></td>
+        </tr>
+        <tr>
+            <td>Lastname</td>
+            <td><input type="text" id="txtName"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" id="txtEmail"></td>
+        </tr>
+        
+        <p >Do you agree to the terms and condiations? </p>
+        <input type="checkbox" name="Yes" value="Yes">Yes<br>
+        <input type="checkbox" name="No" value="No">NO<br>
+       
+    </br>
+        <tr>
+            <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+        </tr>
+    </table>
+    <div id="finalResult"></div>
 
-
-<p >Do you agree to the terms and condiations? </p>
-<input type="checkbox" name="Yes" value="Yes">Yes<br>
-<input type="checkbox" name="No" value="No">NO<br>
-        </br>
-<button id="mySubmit" type="submit">Submit</button>
-        </form>
     </body>
 </html>
