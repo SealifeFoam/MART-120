@@ -2,16 +2,47 @@
 
 <head> 
 <script> 
-        function checkForm()
+        function getData()
         {
             var name;
-            name = document.getElementById("txtName").value;
+            name = document.getElementById("txtFName").value;
             if(name == "")
             { 
-                document.getElementById("txtName").style.backgroundColor = "red"
+                document.getElementById("txtFName").style.backgroundColor = "red";
+                document.getElementById("txtFName").focus()
+            } 
+            else 
+            {
+                document.getElementById("txtFName").style.backgroundColor = "white"
             }
-        
+            
+            var Lname;
+            Lname = document.getElementById("txtLName").value;
+            if(Lname == "")
+            { 
+                document.getElementById("txtLName").style.backgroundColor = "red";
+                document.getElementById("txtLName").focus()
+            } 
+            else 
+            {
+                document.getElementById("txtLName").style.backgroundColor = "white"
+            }
+            
+            var email;
+            email = document.getElementById("txtEmail").value;
+            if(email == "")
+            { 
+                document.getElementById("txtEmail").style.backgroundColor = "red";
+            } 
+            else 
+            {
+                document.getElementById("txtEmail").style.backgroundColor = "white"
+            }  
         }
+       
+        
+             
+        
 </script>
   </head>
 
@@ -33,11 +64,11 @@
     <table>
         <tr>
             <td>FirstName</td>
-            <td><input type="text" id="txtName"></td>
+            <td><input type="text" id="txtFName"></td>
         </tr>
         <tr>
             <td>Lastname</td>
-            <td><input type="text" id="txtName"></td>
+            <td><input type="text" id="txtLName"></td>
         </tr>
         <tr>
             <td>Email</td>
@@ -50,8 +81,9 @@
        
     </br>
         <tr>
-            <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+            <td colspan="2"><button id="btnSubmit" onClick="getData();"  >Submit</button></td>
         </tr>
+
     </table>
     <div id="finalResult"></div>
 
