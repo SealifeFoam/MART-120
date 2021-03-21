@@ -16,11 +16,26 @@ var leftarmDirection = 1;
 
 var rightlegX = 240;
 var rightlegY = 370; 
-var rightlegDirection = -1;
+var rightlegDirection = -2;
 
 var leftlegX = 260; 
 var leftlegY = 370;
-var leftlegDirection = 1; 
+var leftlegDirection = 2; 
+
+var size = 22;
+var count = 0;
+var sizeDirection = 2;
+
+var lineptX = 50;
+var lineptY = 30;
+var linedirection = 2; 
+
+var linept1X = 400; 
+var linept1Y = 250; 
+var linept2X = 200; 
+var linept2Y = 250;
+var lineDirection = -1; 
+
 
 
 function setup()
@@ -32,9 +47,30 @@ function setup()
 function draw()
 {
     background(255, 255, 255);
-    textSize(22)
-    text("Sydney B", 400,580);
+
+    textSize(size)
+    textSize(size);
+    size+= sizeDirection;
+    count++;
+    if(count > 5)
+    {
+        sizeDirection *=-1;
+        count = 0;
+    }
+    text("My Crappy Animation", 200,580);
    
+    //diagonal line 
+    fill (0, 250, 154)
+    line (linept1X, linept1Y, linept2X, linept2Y)
+    linept1X += lineDirection;
+    linept1Y += lineDirection; 
+    linept2X += lineDirection; 
+    linept2Y += lineDirection; 
+    if (linept1X > 800 || linept1X < 0 || linept1Y > 250 || linept1Y < 0 || linept2X > 600 || linept2X < 0 || linept2Y > 250 || linept2Y < 0 ) 
+    {
+    lineDirection *= -1; 
+    }
+
     // hair back of head 
     fill(139, 69, 19) 
     rect(175, 45, 180, 190, 20, 15, 10, 5);
@@ -93,21 +129,49 @@ function draw()
     leftarmX += leftarmDirection; 
     if (leftarmX <= 230 || leftarmX >= 280)
     {
-        leftarmDirection *= -1
+        leftarmDirection *= -1;
     }
 
     // leg left 
     line(260, 320, leftlegX,370)
     leftlegX += leftlegDirection;
-    if (leftlegX <= 230 || leftlegX >= 260 )
+    if (leftlegX <= 230 || leftlegX >= 290 )
     {
-        leftlegDirection *= 1;
+        leftlegDirection *= -1;
     }
    
-    //leg Continuing 1 
-    line(0, 0, 30, 0); 
-    
+   // line1  
+   line (50, lineptY, 50, lineptY)
+    lineptY += linedirection ; 
+    if (lineptY <= 30 || lineptY >= 200 )
+    {
+        linedirection *= -1; 
+    }
+
+    //line2
+    line (100, lineptY, 100, lineptY)
+    lineptY += linedirection ; 
+    if (lineptY <= 30 || lineptY >= 400 )
+    {
+        linedirection *= -1; 
+    }
+
+    //line3
+    line (400, lineptY, 400, lineptY)
+    lineptY += linedirection ; 
+    if (lineptY <= 30 || lineptY >= 200 )
+    {
+        linedirection *= -1; 
+    }
+
+    //line4 
+    line (450, lineptY, 450, lineptY)
+    lineptY += linedirection ; 
+    if (lineptY <= 30 || lineptY >= 200 )
+    {
+        linedirection *= -1; 
+    }
 
 
-}
+} 
 
