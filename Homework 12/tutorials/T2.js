@@ -3,12 +3,20 @@ function setup() {
     
 }
  function draw(){
-     background (50); 
+     background (50);
 
-     fill(0,200,255);
-     rect(290,200, 20, 150);
+    lollipop(100, 100, 50);
+    lollipop(300, 200, 150); 
+    //won't change size here, but will in p5 program, why?  
+    
+
+ }
+
+ function lollipop(x, y, diameter) {
+   
+    fill(0,200,255);
+     rect(x-10, y, 20, 150);
 
      fill(255, 0, 200);
-     ellipse(300, 200, 100, 100);
-     
+     ellipse(x, y, diameter, diameter);   
  }
