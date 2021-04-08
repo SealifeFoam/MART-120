@@ -6,6 +6,8 @@ var w = 87;
 var s = 83;
 var a = 65;
 var d = 68;
+var x = 50;
+var y = 50;
 
 // x and y for a shape
 var shapeX = 25;
@@ -19,7 +21,14 @@ var mouseShapeY;
 
 // moving Spheres 
 var CircleY = 340; 
-var YDirection = 1; 
+var YDirection = 1;
+
+//Arrays 
+var myXs = [];
+var myYs = [];
+var myDiameters =[];
+var randomColor = '#' +Math.floor(Math.random()*16777215).toString(16);
+
 
 function setup()
 {
@@ -27,6 +36,23 @@ function setup()
     // get a random speed when the it first starts
     shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 4)) + 1);
     shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 4)) + 1);
+
+    //Arrays 
+    var x = 100;
+    var y = 460;
+    var diameter = 15;
+    for(var i = 0; i < 7; i++) //Controls Amount of Variables
+    {
+        myXs[i] = x;
+        myYs[i] = y;
+        myDiameters[i] = diameter;
+        x += 45;
+        y += 0;
+        diameter += 7; //Contols Max Size of Shape
+    }
+    
+
+  
 }
 
 function draw()
@@ -50,6 +76,13 @@ function draw()
     YouWin(); 
 
     ApearingObtaclie(); 
+
+    //Create Array function later 
+    for(var i = 0; i < myXs.length; i++) {
+      circle(myXs[i],myYs[i], myDiameters[i]);
+    }
+   
+    
 
  }
 
@@ -76,10 +109,34 @@ function Character () {
  //character
     fill(255, 204, 204);
     circle(characterX,characterY,15);
+  //keeps on canvas 
+    if(characterX > width)
+    {
+        characterX = 0;
+    }
+    if(characterX < 0)
+    {
+        characterX = width;
+    }
+    if(characterY > height)
+    {
+        characterY = 0;
+    }
+    if(characterY < 0)
+    {
+        characterY = height;
+    }  
 }
 
 function CharacterMovement(){
   // wsad = the keys
+  if (x >= 490)
+  {x = 50;
+  }
+  if (y >= 590)
+  {
+    y = 50; 
+  }
   if(keyIsDown(w))
   {
       characterY -= 9;   
@@ -180,11 +237,13 @@ function Enemy() {
       shapeY = height;
   }
 
+  
+
 }
 
 function Obstacles() {
   // Moving Circles 
-    random(fill)
+    fill(250)
     circle(310, CircleY, 15 )
     circle(150, CircleY, 15)
     circle(230, CircleY, 15)
@@ -193,12 +252,17 @@ function Obstacles() {
     {
       YDirection *= -1
     }
+    
 }
 
  function mouseClicked()
  {
      mouseShapeX = mouseX;
      mouseShapeY = mouseY;
+ }
+
+
+
  }
   
  
