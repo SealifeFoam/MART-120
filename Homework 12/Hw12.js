@@ -12,6 +12,8 @@ var y = 50;
 // x and y for a shape
 var shapeX = 25;
 var shapeY = 50;
+var PinkSX = 220;
+var PinkSY = 230;
 var shapeXSpeed;
 var shapeYSpeed;
 
@@ -27,26 +29,28 @@ var YDirection = 1;
 var myXs = [];
 var myYs = [];
 var myDiameters =[];
-var randomColor = '#' +Math.floor(Math.random()*16777215).toString(16);
-
+var randomColor = '#' +Math.floor(Math.random()*16777215).toString(15);
+var randomMovementX; 
+var randomMovementY; 
 
 function setup()
 {
     createCanvas(500, 600);
     // get a random speed when the it first starts
-    shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 4)) + 1);
-    shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 4)) + 1);
+    randomMovement = Math.floor(Math.random() * (Math.floor(Math.random() * 4)) + 1);
+    randomMovement = Math.floor(Math.random() * (Math.floor(Math.random() * 4)) + 1);
 
     //Arrays 
+  
     var x = 100;
     var y = 460;
-    var diameter = 15;
+    var diameter = 10;
     for(var i = 0; i < 7; i++) //Controls Amount of Variables
     {
         myXs[i] = x;
         myYs[i] = y;
         myDiameters[i] = diameter;
-        x += 45;
+        x += 100;
         y += 0;
         diameter += 7; //Contols Max Size of Shape
     }
@@ -77,10 +81,7 @@ function draw()
 
     ApearingObtaclie(); 
 
-    //Create Array function later 
-    for(var i = 0; i < myXs.length; i++) {
-      circle(myXs[i],myYs[i], myDiameters[i]);
-    }
+    Arrays();
    
     
 
@@ -197,8 +198,7 @@ function Maze () {
     rect (0, 340, 450, 20) 
     rect (50, 420, 450, 20)
     rect (50, 420, 450, 80)
-    
-    
+ 
 }
 function ApearingObtaclie(){
   // create the shape based on the mouse click
@@ -211,7 +211,9 @@ function Enemy() {
   fill(13,145,4);
   // Enemy 1 shape
   rect(shapeX, shapeY, 15, 15);
-
+  circle(shapeX, shapeY, 15, 15);
+  circle(shapeX, shapeX, 15, 15);
+  rect(shapeX, shapeX, 15, 20);
    // random speed 
    shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
    shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
@@ -261,10 +263,18 @@ function Obstacles() {
      mouseShapeY = mouseY;
  }
 
+function Arrays ()
+{
+//fill 
+fill(randomColor)
 
-
- }
+for(var i = 0; i < myXs.length; i++) {
+  circle(myXs[i],myYs[i], myDiameters[i]);
+}
+//Array Speed
+randomMovementX = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+randomMovementY = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
   
- 
+ }
  
    
