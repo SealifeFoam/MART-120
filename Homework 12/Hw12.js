@@ -58,7 +58,7 @@ function setup()
         diameter += 7; //Contols Max Size of Shape
     }
     //Class object "Trees"
-    TreesObject = new ellipse(100, 200, 10, 50, 120, 35, 210)
+    TreesObject = new ellipse(100, 200, 10, 50, 120, 35, 210);
   
 }
 
@@ -87,7 +87,7 @@ function draw()
     Arrays();
    
     TreesObject.display();
-    fill(0);
+    
 
  }
 
