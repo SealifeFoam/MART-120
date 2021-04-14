@@ -33,6 +33,9 @@ var randomColor = '#' +Math.floor(Math.random()*16777215).toString(15);
 var randomMovementX; 
 var randomMovementY; 
 
+//Class 
+var Trees; 
+
 function setup()
 {
     createCanvas(500, 600);
@@ -54,8 +57,8 @@ function setup()
         y += 0;
         diameter += 7; //Contols Max Size of Shape
     }
-    
-
+    //Class object "Trees"
+    Trees = new ellipse(100, 200, 10, 50, 120, 35, 210)
   
 }
 
@@ -83,7 +86,7 @@ function draw()
 
     Arrays();
    
-    
+    Trees.display();
 
  }
 
