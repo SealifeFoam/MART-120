@@ -34,7 +34,7 @@ var randomMovementX;
 var randomMovementY; 
 
 //Class 
-var Trees; 
+var TreesObject; 
 
 function setup()
 {
@@ -58,7 +58,7 @@ function setup()
         diameter += 7; //Contols Max Size of Shape
     }
     //Class object "Trees"
-    Trees = new ellipse(100, 200, 10, 50, 120, 35, 210)
+    TreesObject = new ellipse(100, 200, 10, 50, 120, 35, 210)
   
 }
 
@@ -86,7 +86,8 @@ function draw()
 
     Arrays();
    
-    Trees.display();
+    TreesObject.display();
+    fill(0);
 
  }
 
@@ -271,9 +272,10 @@ function Arrays ()
 //fill 
 fill(randomColor)
 
-for(var i = 0; i < myXs.length; i++) {
+for(var i = 0; i < myXs.length; i++)
+ {
   circle(myXs[i],myYs[i], myDiameters[i]);
-}
+  }
 //Array Speed
 randomMovementX = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
 randomMovementY = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
